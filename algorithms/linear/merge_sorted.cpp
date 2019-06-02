@@ -58,14 +58,8 @@ void LinkedList::append(int num) {
   node->next = NULL;
   if (tail)
     tail->next = node;
-  // First element?
   if (head == NULL)
-    // Point head to new node
     head = node;
-  // Second element?
-  if (count == 1)
-    // Point head->next to new node
-    head->next = node;
   tail = node;
   count++;
 }
