@@ -3,27 +3,26 @@ let n = 57;
 let k = denoms.length;
 
 let A = [];
-for (let i = 0; i < k+1; i++) {
+for (let i = 0; i <= k; i++) {
   let j_array = [];
-  for (let j = 0; j < n+1; j++) {
+  for (let j = 0; j <= n; j++) {
     j_array.push(undefined);
   }
   A.push(j_array);
 }
 
 // Initialize A
-for (let i = 1; i < k+1; i++) {
+for (let i = 1; i <= k; i++) {
   A[i][0] = 0;
-  
 }
-for (let j = 0; j < n+1; j++) {
+for (let j = 0; j <= n; j++) {
   A[0][j] = Infinity;
 }
 
 // Populate A with optimal values
-for (let i = 1; i < k+1; i++) {
+for (let i = 1; i <= k; i++) {
   let d = denoms[i-1];
-  for (let j = 1; j < n+1; j++) {
+  for (let j = 1; j <= n; j++) {
     if (j < d) {
       A[i][j] = A[i-1][j];
     } else {
