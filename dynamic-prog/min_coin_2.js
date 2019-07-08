@@ -46,6 +46,35 @@ const PrintOpt = (i, j) => {
   }
 };
 
-console.log(A);
+const PrintOptIter = (k, n) => {
+  let i = k;
+  let j = n;
+  let coins = [];
+  while (j > 0) {
+    if (A[i][j] === A[i-1][j]) {
+      i -= 1;
+    } else {
+      let d = denoms[i-1];
+      coins.push(d);
+      j -= d;
+    }
+  }
+  let s = "";
+  for (let i = 0; i < coins.length; i++) {
+    s += (i === coins.length-1) ? coins[i] : coins[i] + " + ";
+  }
+  console.log(s);
+};
+
+let s = denoms.reduce(function(acc, curr) {
+  if (curr === denoms[denoms.length-1]) {
+    return acc + curr;
+  } else {
+    return acc + curr + ", ";
+  }
+}, "");
+
+console.log("Coins:", s);
+console.log("Amount:", ''+n);
 console.log("Optimal number of coins: " + A[k][n]);
-PrintOpt(k, n);
+PrintOptIter(k, n);
