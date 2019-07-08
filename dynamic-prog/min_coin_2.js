@@ -62,7 +62,7 @@ const PrintOptIter = (k, n) => {
   for (let i = 0; i < coins.length; i++) {
     s += (i === coins.length-1) ? coins[i] : coins[i] + " + ";
   }
-  console.log(s);
+  console.log("Coins:",s);
 };
 
 let s = denoms.reduce(function(acc, curr) {
@@ -73,7 +73,7 @@ let s = denoms.reduce(function(acc, curr) {
   }
 }, "");
 
-console.log("Coins:", s);
+console.log("Coin Denominations:", s);
 console.log("Amount:", ''+n);
 console.log("Optimal number of coins: " + A[k][n]);
 PrintOptIter(k, n);
